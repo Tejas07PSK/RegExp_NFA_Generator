@@ -107,105 +107,106 @@ final public class Logic
     	  
     	       private int getLst ()
     	       {
-    		  return ( lst );
+    		     return ( lst );
     	       }
     	  
-    	 int getSlb()
-    	  {
-    		  return (slb);
-    	  }
+    	       private int getSlb ()
+    	       {
+    		     return ( slb );
+    	       }
     	  
-      }
+        }
 	  
       private String re;
       private static String cre;
       private static int sco; 
-      private ArrayList <PrthStCntr> psc=new ArrayList <PrthStCntr> ();
-      private static ArrayList <Automata> auto;//=new ArrayList <Automata> ();
+      private ArrayList < PrthStCntr > psc;
+      private static ArrayList < Automata > auto;
       
-      public Logic()
+      public Logic ()
       {
-    	  super();
-    	  sco=0;
-    	  //psc=new ArrayList <PrthStCntr> ();
-    	  auto=new ArrayList <Automata> ();
+    	   super ();
+    	   sco = 0;
+    	   psc = new ArrayList < PrthStCntr > ();
+    	   auto = new ArrayList < Automata > ();
       }
-      public Logic(String re)
+      public Logic ( String re )
       {
-    	  this();
-    	  this.re=re;
-    	  statenumbering(this.re);
-    	  parse(this.re);
+    	   this ();
+    	   this.re = re;
+    	   statenumbering ( this.re );
+    	   parse ( this.re );
       }
       
-      public static boolean stringCheck(final String regexp,final String inpexp)
+      public static boolean stringCheck ( final String regexp, final String inpexp )
       {
-    	   Pattern patt;
-    	   Matcher match;
+    	       Pattern patt;
+    	       Matcher match;
     	   
-    	   patt=Pattern.compile(regexp);
-    	   match=patt.matcher(inpexp);
-    	   if(match.matches()==true)
-    	   {
-    	       return(true);
-    	   }
-    	   else
-    	   {
-    		   return(false);
-    	   }
-      }
-      protected void statenumbering(String re)
-      {
-    	  cre=re;
-    	  int ln=re.length(),c=0,osl=0;
-    	  int ppsmax=0; 
-    	  int prcl=0;
-    	  ArrayList <Character> brkts=new ArrayList <Character> ();
-    	  while(c<ln)
-    	  {
-    		  if((re.charAt(c))=='(')
-    		  {
-    			  brkts.add('(');
-    			  psc.add(new PrthStCntr(brkts.size()+ppsmax));
-    			  if((c>0)&&(re.charAt(c-1)=='|'))
+    	       patt = Pattern.compile ( regexp );
+    	       match = patt.matcher ( inpexp );
+    	       
+	       if ( match.matches () == true )
+    	       {
+    	              return ( true );
+    	       }
+    	       else
+    	       {
+    		      return ( false );
+    	       }
+       }
+       protected void statenumbering ( String re )
+       {
+    	    cre = re;
+    	    int ln = re.length(), c = 0, osl = 0;
+    	    int ppsmax = 0; 
+    	    int prcl = 0;
+    	    ArrayList < Character > brkts = new ArrayList < Character > ();
+    	    while( c < ln )
+    	    {
+    		   if ( ( re.charAt ( c ) ) == '(' )
+    		   {
+    			  brkts.add ( '(' );
+    			  psc.add ( new PrthStCntr ( brkts.size () + ppsmax ) );
+    			  if ( ( c > 0 ) && ( re.charAt ( c - 1 ) == '|' ) )
     			  {
-    				  psc.get((brkts.size()+ppsmax)-1).setSlb(1);
+    				  psc.get ( ( brkts.size () + ppsmax ) - 1 ).setSlb ( 1 );
     				  c++;
     				  continue;
     			  }
     			  else
     			  {
     				  c++;
-    			      continue;
+    			          continue;
     			  }
-    		  }
-    		  if((re.charAt(c))==')')
-    		  {
+    		   }
+    		   if ( ( re.charAt ( c ) ) == ')' )
+    		   {
     			  prcl++;
-    			  if((psc.size())!=prcl)
+    			  if ( ( psc.size () ) != prcl )
     			  {
-    			       if((re.charAt(c+1))=='*')
+    			       if( ( re.charAt ( c + 1 ) ) == '*' )
     			       {
-    				       psc.get((brkts.size()+ppsmax)-1).setSci((psc.get((brkts.size()+ppsmax)-1).getSci())+1);
-    				       brkts.remove((brkts.size())-1);
-    				       c=c+2;
-    			           continue;
+    				       psc.get ( ( brkts.size () + ppsmax ) - 1 ).setSci ( ( psc.get ( ( brkts.size () + ppsmax ) - 1 ).getSci () ) + 1 );
+    				       brkts.remove ( ( brkts.size () ) - 1 );
+    				       c = c + 2;
+    			               continue;
     			       }
     			       else
     			       {
-    				       brkts.remove((brkts.size())-1);
-    			    	   c++;
+    				       brkts.remove ( ( brkts.size () ) - 1 );
+    			    	       c++;
     				       continue;
     			       }
-    		      }
+    		          }
     			  else
     			  {
-    				   if(c+1==ln)
+    				   if ( c + 1 == ln )
    			           {
-   				           ppsmax=psc.size();
-   				           brkts.remove((brkts.size())-1);
-                           c=c+1;
-                           break;
+   				           ppsmax = psc.size ();
+   				           brkts.remove ( ( brkts.size () ) - 1 );
+                                           c = c + 1;
+                                           break;
    			           }
    			           if((re.charAt(c+1)=='*')&&((c+2)==ln))
                                    {
