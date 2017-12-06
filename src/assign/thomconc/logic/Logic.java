@@ -24,93 +24,93 @@ import assign.thomconc.framedesign.displayAutomataMatrix;
 
 final public class Logic 
 {
-	  private static class PrthStCntr
-      {
-    	  private int pexn;
-    	  private int sci;
-    	  private int isl;
-    	  private int chkststate;
-    	  private int fst;
-    	  private int lst;
-    	  private int slb;
+	private static class PrthStCntr
+        {
+    	       private int pexn;
+    	       private int sci;
+    	       private int isl;
+    	       private int chkststate;
+    	       private int fst;
+    	       private int lst;
+    	       private int slb;
           
-    	  PrthStCntr()
-    	  {
-    		  pexn=0;
-              sci=0;
-    		  isl=0;
-    		  chkststate=0;
-    		  fst=0;
-    		  lst=0;
-    		  slb=0;
-    	  }
-    	  PrthStCntr(int pexn)
-    	  {
-    		  this();
-    		  this.pexn=pexn;
-    	  }
+    	       PrthStCntr ()
+    	       {
+    		      pexn = 0;
+                      sci = 0;
+    		      isl = 0;
+    		      chkststate = 0;
+    		      fst = 0;
+    		      lst = 0;
+    		      slb = 0;
+    	       }
+    	       PrthStCntr ( int pexn )
+    	       {
+    		     this ();
+    		     this.pexn = pexn;
+    	       }
     	  
-    	  private void setIsl(int isl)
-    	  {
-    		  this.isl=isl;
-    	  }
+    	       private void setIsl ( int isl )
+    	       {
+    		     this.isl = isl;
+    	       }
     	  
-    	  private void setSci(int sci)
-    	  {
-    		  this.sci=sci;
-    	  }
+    	       private void setSci ( int sci )
+    	       {
+    		     this.sci = sci;
+    	       }
     	  
-    	  private void setChkststate(int chkststate)
-    	  {
-    		  this.chkststate=chkststate;
-    	  }
+    	       private void setChkststate ( int chkststate )
+    	       {
+    		     this.chkststate = chkststate;
+    	       }
     	  
-    	  private void setFst(int fst)
-    	  {
-    		  this.fst=fst;
-    	  }
+    	       private void setFst ( int fst )
+    	       {
+    		     this.fst = fst;
+    	       }
     	  
-    	  private void setLst(int lst)
-    	  {
-    		  this.lst=lst;
-    	  }
+    	       private void setLst ( int lst )
+    	       {
+    		     this.lst = lst;
+    	       }
     	  
-    	  private void setSlb(int slb)
-    	  {
-    		  this.slb=slb;
-    	  }
+    	       private void setSlb ( int slb )
+    	       {
+    		     this.slb = slb;
+    	       }
     	  
-    	  private int getIsl()
-    	  {
-    		  return (isl);
-    	  }
+    	       private int getIsl ()
+    	       {
+    		     return ( isl );
+    	       }
     	  
-    	  private int getPexn()
-    	  {
-    		  return (pexn);
-    	  }
+    	       private int getPexn ()
+    	       {
+    		     return ( pexn );
+    	       }
     	  
-    	  private int getSci()
-    	  {
-    		  return (sci);
-    	  }
+    	       private int getSciv ()
+    	       {
+    		     return ( sci );
+    	       }
     	  
-    	  private int getChkststate()
-    	  {
-    		  return (chkststate);
-    	  }
+    	       private int getChkststate ()
+    	       {
+    		     return ( chkststate );
+    	       }
     	  
-    	  private int getFst()
-    	  {
-    		  return (fst);
-    	  }
+    	       private int getFst ()
+    	       {
+    		     return ( fst );
+    	       }
     	  
-    	  private int getLst()
-    	  {
-    		  return (lst);
-    	  }
+    	       private int getLst ()
+    	       {
+    		  return ( lst );
+    	       }
     	  
-    	  private int getSlb()
+    	 int getSlb()
     	  {
     		  return (slb);
     	  }
