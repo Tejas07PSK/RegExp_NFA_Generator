@@ -90,7 +90,7 @@ final public class Logic
     		     return ( pexn );
     	       }
     	  
-    	       private int getSciv ()
+    	       private int getSci ()
     	       {
     		     return ( sci );
     	       }
